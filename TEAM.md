@@ -12,7 +12,7 @@
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
 |   1 | Đỗ Hoàng Vũ | 2A202603920 | dohoangvu.nt2005@gmail.com | `hoangvu1806` | Người viết code (Developer — CP1, CP2) |
-|   2 | Trần Gia Bảo | 2A202603914 | | | Người kiểm số (Data Validator — CP1, CP2; đổi vai viết code CP4) |
+|   2 | Trần Gia Bảo | 2A202603914 | trangiabao433@gmail.com | `Jay-Gabriel` | Người kiểm số (Data Validator — CP1, CP2; đổi vai viết code CP4) |
 |   3 | Nguyễn Bảo Duy | 2A202603890 | | | Người gắn nhãn 1 (Annotator 1 & Metrics Owner) |
 |   4 | Bùi Đặng Nhật Nguyên | 2A202603937 | | `double-n-021` | Người gắn nhãn 2 kiêm Giữ hồ sơ (Annotator 2 & Doc Owner) |
 
@@ -61,11 +61,14 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 #### Đóng góp cụ thể
 
-- (Cập nhật sau khi hoàn thành từng Checkpoint)
+- Cài đặt môi trường `src/.venv` trên máy thứ hai và chạy kiểm chứng chéo toàn bộ kết quả CP1–CP2 từ `src/lab13.py` (3 phép thử A1 đạt `1,20 · 1,25 · 1,25`, sai số đối chiếu 0%).
+- Hoàn thiện toàn bộ `report/team/bang_chi_phi.md` (bảng A1–A4, B1–B4, tính tuyến tính B1/B2, chi phí cả hệ thống B3, kịch bản xem lại 100% ở B4 kèm mức hòa vốn, đầy đủ nhãn `simulated`).
+- Đổi vai viết code phần D1 (`co_mau`, 5 câu cỡ mẫu theo cụm ICC = 0,02, power thực `0,64` bằng `statsmodels`, tỉ lệ `mo_lai_trong_7_ngay` hiện tại `4,25%` / `3,97%`) và phần E1 (3 chỉ số chạy thử `82,83%`, `27,12%`, `4,25%`) trong `src/lab13.py`.
 
 #### Bằng chứng
 
-- (Link commit `bang_chi_phi.md`, phép tính tay đối chiếu, commit D1/E1 trong `src/lab13.py`, file báo cáo cá nhân)
+- Commit `8abb41f` và PR #2 (`feat/bao-cp1-cp4-validation` → `main`): https://github.com/double-n-021/K5-L3B-DAY13-4NguoiDamDang-LaunchEconomics/pull/2
+- Các file `report/team/bang_chi_phi.md`, `src/lab13.py` và báo cáo cá nhân `report/team/2A202603914_TranGiaBao.md`.
 
 ### Nguyễn Bảo Duy - 2A202603890
 
