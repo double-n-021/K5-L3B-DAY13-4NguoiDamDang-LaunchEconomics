@@ -13,7 +13,7 @@
 | --: | ------ | ---- | ----- | ------ | ------- |
 |   1 | Đỗ Hoàng Vũ | 2A202603920 | dohoangvu.nt2005@gmail.com | `hoangvu1806` | Người viết code (Developer — CP1, CP2) |
 |   2 | Trần Gia Bảo | 2A202603914 | trangiabao433@gmail.com | `Jay-Gabriel` | Người kiểm số (Data Validator — CP1, CP2; đổi vai viết code CP4) |
-|   3 | Nguyễn Bảo Duy | 2A202603890 | | | Người gắn nhãn 1 (Annotator 1 & Metrics Owner) |
+|   3 | Nguyễn Bảo Duy | 2A202603890 | baoduy2048@gmail.com | `baoduy2048` | Người gắn nhãn 1 (Annotator 1 & Metrics Owner) |
 |   4 | Bùi Đặng Nhật Nguyên | 2A202603937 | | `double-n-021` | Người gắn nhãn 2 kiêm Giữ hồ sơ (Annotator 2 & Doc Owner) |
 
 Bốn vai của lab:
@@ -78,11 +78,13 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 #### Đóng góp cụ thể
 
-- (Cập nhật sau khi hoàn thành từng Checkpoint)
+- Gắn nhãn độc lập 20/20 ca lỗi theo Google PAIR ở CP3 trên nhánh `baoduy` (đạt 20/20 = 100% đồng thuận khi so chéo với Bùi Đặng Nhật Nguyên).
+- Hoàn thiện `report/team/chi_so.md`: 3 chỉ số tính thử (82,83%, 27,12%, 4,25%) và 2 chỉ số tự đề xuất, 10 event có `trace_id` kèm bảng kiểm tra chéo, và 3 dòng rủi ro kinh tế đối chiếu từ CSV và `src/lab13.py` (có nhãn `simulated`).
+- Tạo báo cáo cá nhân `report/team/2A202603890_NguyenBaoDuy.md`.
 
 #### Bằng chứng
 
-- (Bộ nhãn độc lập trong `bang_loi.md`, link commit `chi_so.md`, file báo cáo cá nhân)
+- Commit `6c52cff` (`bang_loi.md` cột `Nhãn người 1`) và commit `de2fed5` (`report/team/chi_so.md`, `report/team/2A202603890_NguyenBaoDuy.md`) trên nhánh `baoduy`.
 
 ### Bùi Đặng Nhật Nguyên - 2A202603937
 
