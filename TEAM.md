@@ -98,8 +98,9 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 - Đồng bộ `origin/main` và chạy kiểm chứng độc lập toàn bộ `src/lab13.py` (A1–E1, gồm `statsmodels`) trên máy thứ 2; cập nhật số liệu Mục 1–3, 5–6 vào `report/team/ho_so_launch_v0.md`.
 - Gắn nhãn độc lập 20/20 ca lỗi theo Google PAIR, so chéo với Nguyễn Bảo Duy (đạt 20/20 = 100% đồng thuận) và hoàn thiện `report/team/bang_loi.md` (5 quy tắc phân biệt và bảng khắc phục 5 loại lỗi).
 - Hoàn thiện toàn bộ `report/team/pilot_plan.yaml` (D1, D2, công khai đánh đổi MDE +6 điểm / power 0,64, 3 luật dừng định lượng 4 vế, danh sách số `simulated`).
+- Hợp nhất đóng góp của Trần Gia Bảo và Nguyễn Bảo Duy vào `main`, hoàn thiện trọn vẹn `report/team/ho_so_launch_v0.md` (đủ 7 mục và đề xuất **Go có điều kiện**) cùng `report/team/group_report.md`.
 
 #### Bằng chứng
 
-- Commit khởi tạo `TEAM.md` (`044da17`) và `PHAN_CONG_NHOM.md` (`4996cd8`) trên nhánh `main`.
+- Commit `044da17`, `4996cd8`, PR #3 (`178948e`) và merge `3dc366b` trên nhánh `main`.
 - Nhánh `feat/nguyen-cp3-cp5-docs`: `report/team/bang_loi.md`, `report/team/pilot_plan.yaml`, `report/team/ho_so_launch_v0.md`, `report/team/group_report.md`, `report/team/2A202603937_BuiDangNhatNguyen.md`.
