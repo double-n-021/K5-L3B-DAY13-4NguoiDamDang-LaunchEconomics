@@ -12,9 +12,9 @@
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
 |   1 | Đỗ Hoàng Vũ | 2A202603920 | dohoangvu.nt2005@gmail.com | `hoangvu1806` | Người viết code (Developer — CP1, CP2) |
-|   2 | Trần Gia Bảo | | | | Người kiểm số (Data Validator — CP1, CP2; đổi vai viết code CP4) |
-|   3 | Nguyễn Bảo Duy | | | | Người gắn nhãn 1 (Annotator 1 & Metrics Owner) |
-|   4 | Bùi Đặng Nhật Nguyên | | | `double-n-021` | Người gắn nhãn 2 kiêm Giữ hồ sơ (Annotator 2 & Doc Owner) |
+|   2 | Trần Gia Bảo | 2A202603914 | | | Người kiểm số (Data Validator — CP1, CP2; đổi vai viết code CP4) |
+|   3 | Nguyễn Bảo Duy | 2A202603890 | | | Người gắn nhãn 1 (Annotator 1 & Metrics Owner) |
+|   4 | Bùi Đặng Nhật Nguyên | 2A202603937 | | `double-n-021` | Người gắn nhãn 2 kiêm Giữ hồ sơ (Annotator 2 & Doc Owner) |
 
 Bốn vai của lab:
 
@@ -53,7 +53,7 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 - File code `src/lab13.py` chạy qua đủ 3 phép thử A1 (`Ba phép thử đáp án biết trước: ĐẠT`: `1,20 · 1,25 · 1,25`) và xuất đủ bảng số liệu A2–A4, B1–B4.
 - Báo cáo cá nhân `report/team/2A202603920_DoHoangVu.md`.
 
-### Trần Gia Bảo - MSSV
+### Trần Gia Bảo - 2A202603914
 
 #### Phần việc phụ trách
 
@@ -67,7 +67,7 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 - (Link commit `bang_chi_phi.md`, phép tính tay đối chiếu, commit D1/E1 trong `src/lab13.py`, file báo cáo cá nhân)
 
-### Nguyễn Bảo Duy - MSSV
+### Nguyễn Bảo Duy - 2A202603890
 
 #### Phần việc phụ trách
 
@@ -81,7 +81,7 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 - (Bộ nhãn độc lập trong `bang_loi.md`, link commit `chi_so.md`, file báo cáo cá nhân)
 
-### Bùi Đặng Nhật Nguyên - MSSV
+### Bùi Đặng Nhật Nguyên - 2A202603937
 
 #### Phần việc phụ trách
 
@@ -89,8 +89,12 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 #### Đóng góp cụ thể
 
-- (Cập nhật sau khi hoàn thành từng Checkpoint)
+- Khởi tạo repo nhóm lớp `L3B`, cập nhật `TEAM.md` và biên soạn bảng phân công quy trình Branch/PR tại `PHAN_CONG_NHOM.md`.
+- Đồng bộ `origin/main` và chạy kiểm chứng độc lập toàn bộ `src/lab13.py` (A1–E1, gồm `statsmodels`) trên máy thứ 2; cập nhật số liệu Mục 1–3, 5–6 vào `report/team/ho_so_launch_v0.md`.
+- Gắn nhãn độc lập 20/20 ca lỗi theo Google PAIR, so chéo với Nguyễn Bảo Duy (đạt 20/20 = 100% đồng thuận) và hoàn thiện `report/team/bang_loi.md` (5 quy tắc phân biệt và bảng khắc phục 5 loại lỗi).
+- Hoàn thiện toàn bộ `report/team/pilot_plan.yaml` (D1, D2, công khai đánh đổi MDE +6 điểm / power 0,64, 3 luật dừng định lượng 4 vế, danh sách số `simulated`).
 
 #### Bằng chứng
 
-- (Bộ nhãn độc lập trong `bang_loi.md`, link commit các file hồ sơ nhóm, file báo cáo cá nhân)
+- Commit khởi tạo `TEAM.md` (`044da17`) và `PHAN_CONG_NHOM.md` (`4996cd8`) trên nhánh `main`.
+- Nhánh `feat/nguyen-cp3-cp5-docs`: `report/team/bang_loi.md`, `report/team/pilot_plan.yaml`, `report/team/ho_so_launch_v0.md`, `report/team/group_report.md`, `report/team/2A202603937_BuiDangNhatNguyen.md`.
