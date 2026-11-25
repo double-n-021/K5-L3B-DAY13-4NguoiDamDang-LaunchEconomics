@@ -14,7 +14,7 @@
 |   1 | Đỗ Hoàng Vũ | 2A202603920 | dohoangvu.nt2005@gmail.com | `hoangvu1806` | Người viết code (Developer — CP1, CP2) |
 |   2 | Trần Gia Bảo | 2A202603914 | trangiabao433@gmail.com | `Jay-Gabriel` | Người kiểm số (Data Validator — CP1, CP2; đổi vai viết code CP4) |
 |   3 | Nguyễn Bảo Duy | 2A202603890 | baoduy2048@gmail.com | `baoduy2048` | Người gắn nhãn 1 (Annotator 1 & Metrics Owner) |
-|   4 | Bùi Đặng Nhật Nguyên | 2A202603937 | | `double-n-021` | Người gắn nhãn 2 kiêm Giữ hồ sơ (Annotator 2 & Doc Owner) |
+|   4 | Bùi Đặng Nhật Nguyên | 2A202603937 | nhatnguyenmtvt@gmail.com | `double-n-021` | Người gắn nhãn 2 kiêm Giữ hồ sơ (Annotator 2 & Doc Owner) |
 
 Bốn vai của lab:
 

@@ -4,7 +4,7 @@
 
 - Họ tên: Bùi Đặng Nhật Nguyên
 - MSSV: 2A202603937
-- Email: (tự điền bổ sung)
+- Email: nhatnguyenmtvt@gmail.com
 - GitHub: `double-n-021`
 - Vai trong nhóm: Người gắn nhãn 2 kiêm Giữ hồ sơ (Annotator 2 & Doc Owner)
 
