@@ -58,7 +58,7 @@ Nguyên tắc: mỗi file tại một thời điểm chỉ có **một người 
 | **14:00 – 14:10** | **Chuẩn bị** | Clone repo, cài `src/.venv`, chạy thử `lab13.py` | Cài môi trường trên máy thứ 2 để sẵn sàng chạy kiểm chéo | Mở `CHECKPOINTS.md` và `RUBRIC.md`, nắm điều kiện "Xong khi" | Mở sẵn khung `ho_so_launch_v0.md`, nhắc mọi người điền `TEAM.md` |
 | **14:10 – 14:53** | **CP1 · A: Mô hình chi phí** | Code A1 (3 test `1,20 · 1,25 · 1,25`), `mo_hinh` (A2), A3 (4 loại), A4 (chi phí cố định) | Tính tay 1 ca để đối chiếu; nhận output từ Vũ để điền bảng A1–A4 vào `bang_chi_phi.md` | Kiểm tra sai số <= 2% và xác nhận mọi số từ cột `_simulated` đều có nhãn `simulated` | Điền ngay **Mục 1** (Chi phí mỗi việc thành công) và **Mục 3** (So với 12.000 đ) vào `ho_so_launch_v0.md` |
 | **14:53 – 15:20** | **CP2 · B: Bảng độ nhạy** | Code B1 (9 kịch bản), B2 (cặp), B3 (chi phí cả hệ thống 1/2/3 lần), B4 (xem lại 100%) | Kiểm tra tính tuyến tính B1/B2; hoàn thiện bảng B1–B4 và câu trả lời (<= 3 dòng, có số) trong `bang_chi_phi.md` | Đọc trước định nghĩa 5 loại lỗi Google PAIR trong `docs/` để chuẩn bị CP3 | Điền **Mục 2** (Top 3 yếu tố nhạy nhất) vào `ho_so_launch_v0.md`; đọc trước khung 5 loại lỗi |
-| **15:20 – 15:35** | **Giải lao** | Commit & push `src/lab13.py` để bàn giao cho Gia Bảo | Pull nhánh `main`, sẵn sàng tiếp quản `src/lab13.py` | Nghỉ giải lao | Nghỉ giải lao |
+| **15:20 – 15:35** | **Giải lao** | Push nhánh `feat/vu-cp1-cp2-cost`, tạo PR vào `main` và merge để bàn giao cho Gia Bảo | Kéo `origin/main` về nhánh `feat/bao-cp1-cp4-validation`, sẵn sàng tiếp quản `src/lab13.py` | Nghỉ giải lao | Nghỉ giải lao |
 | **15:35 – 16:08** | **CP3 · C: 20 ca lỗi** | Hỗ trợ chốt định dạng `bang_chi_phi.md`; cùng nhóm làm bảng khắc phục 5 loại sau khi so nhãn | Hỗ trợ kiểm tra số B3/B4 và chuẩn bị công thức D1; cùng nhóm viết quy tắc phân biệt | **8 phút đầu:** Ngồi tách riêng, gắn nhãn độc lập 20 ca lỗi (không trao đổi). Sau đó so nhãn với Nguyên, thống nhất và phụ trách phần phát hiện đo được | **8 phút đầu:** Ngồi tách riêng, gắn nhãn độc lập 20 ca lỗi (không trao đổi). Sau đó so nhãn với Duy, ghi quy tắc ca lệch, điền `bang_loi.md` và **Mục 5** của `ho_so_launch_v0.md` |
 | **16:08 – 16:36** | **CP4 · D: Pilot Plan** | Trả lời 5 câu D2 (tách được tác động) và kiểm tra phương án rollback kỹ thuật | **Đổi vai viết code:** Code 5 câu D1 (cỡ mẫu, DE, mẫu hiệu dụng) và tính tỉ lệ `mo_lai_trong_7_ngay` hiện tại trong `src/lab13.py` | Kiểm tra chéo 3 luật dừng (An toàn, Chi phí, Sử dụng) đủ 4 vế `NẾU – TRONG – THÌ – KHÔNG THÌ` | Điền hoàn chỉnh `pilot_plan.yaml` (comment D1/D2, 0 dấu `?`), test `yaml.safe_load`; điền **Mục 6** của `ho_so_launch_v0.md` |
 | **16:36 – 17:00** | **CP5 · E: Chỉ số & Hồ sơ v0** | Chạy toàn bộ `src/lab13.py` từ đầu đến cuối kiểm tra không lỗi | Tính 3 chỉ số E1 trong `src/lab13.py`; rà soát đối chiếu số liệu toàn hồ sơ | Hoàn thiện `chi_so.md`: 3 chỉ số tính thử + 2 chỉ số đề xuất + >= 6 event có `trace_id` + >= 2 dòng rủi ro kinh tế | Hoàn thiện **Mục 4**, **Mục 7** và **Đề xuất cuối (Go / Go có điều kiện / No-go)** trong `ho_so_launch_v0.md` trước **17:00** |
@@ -74,14 +74,14 @@ Nguyên tắc: mỗi file tại một thời điểm chỉ có **một người 
 1. Setup môi trường trong `src/`, xác nhận `python -c "import pandas, numpy, scipy, statsmodels, yaml; print('san sang')"`.
 2. **CP1:** Viết 3 hàm A1 trong `src/lab13.py` (`so_lan_chay_ky_vong`, `ti_le_thanh_cong`, `he_so_chi_phi_moi_viec_thanh_cong`) cho tới khi `kiem_tra_dap_an_biet_truoc()` in `ĐẠT` (`1,20 · 1,25 · 1,25`). Sau đó viết `mo_hinh()` (A2), tách theo `loai` (A3) và cộng chi phí cố định 40 triệu đ/tháng (A4).
 3. **CP2:** Gọi lại `mo_hinh()` để chạy 9 kịch bản B1, kịch bản cặp B2, so sánh giới hạn 1/2/3 lần chạy kèm chi phí cả hệ thống (B3) và kịch bản xem lại 100% cho `noi_dia + hang_nang` (B4).
-4. **15:20 (Giải lao):** Commit và push `src/lab13.py` lên `main` để Trần Gia Bảo tiếp quản phần code CP4.
+4. **15:20 (Giải lao):** Push nhánh `feat/vu-cp1-cp2-cost`, mở Pull Request vào `main` và merge để Trần Gia Bảo kéo về tiếp quản phần code CP4.
 5. **CP4–CP5:** Hỗ trợ phân tích 5 câu hỏi tách tác động (D2), kiểm tra tính khả thi kỹ thuật của cơ chế rollback 30 phút và chạy kiểm tra cuối toàn bộ `src/lab13.py`.
 
 ### 4.2. Trần Gia Bảo — Người kiểm số & Code CP4
 
 1. Cài môi trường Python trên máy thứ hai ngay đầu buổi để đảm bảo yêu cầu chạy tái lập trên ít nhất 2 máy.
 2. **CP1–CP2:** Tính tay kiểm chứng một trường hợp nhỏ và đối chiếu từng dòng kết quả Vũ xuất ra (sai số <= 2%). Điền đầy đủ bảng A1–A4, B1–B4 và câu trả lời (<= 3 dòng, có số) vào `report/team/bang_chi_phi.md`. Kiểm tra kỹ tính tuyến tính ở B1/B2 và nhắc gắn nhãn `simulated`.
-3. **15:35 (Sau giải lao — đổi vai viết code):** `git pull --rebase origin main`, tiếp quản `src/lab13.py` để viết code tính 5 câu D1 (cỡ mẫu, Design Effect, Effective Sample Size, mức chênh 6 điểm), tỉ lệ `mo_lai_trong_7_ngay` hiện tại, và 3 chỉ số E1.
+3. **15:35 (Sau giải lao — đổi vai viết code):** Đồng bộ `main` mới nhất (`git fetch origin && git merge origin/main`) vào nhánh `feat/bao-cp1-cp4-validation`, tiếp quản `src/lab13.py` để viết code tính 5 câu D1 (cỡ mẫu, Design Effect, Effective Sample Size, mức chênh 6 điểm), tỉ lệ `mo_lai_trong_7_ngay` hiện tại, và 3 chỉ số E1.
 4. **CP5 & Gate 2a:** Đối chiếu mọi con số giữa `bang_chi_phi.md`, `pilot_plan.yaml`, `chi_so.md` và `ho_so_launch_v0.md`. Khi chấm chéo, chịu trách nhiệm kiểm tra tính khớp số liệu của nhóm được chấm.
 
 ### 4.3. Nguyễn Bảo Duy — Người gắn nhãn 1 & Metrics Owner
@@ -116,23 +116,49 @@ Nguyên tắc: mỗi file tại một thời điểm chỉ có **một người 
 
 ## 6. Quy trình Git và Checklist nộp bài (Trước 23h59 GMT+7)
 
-### Quy trình Git phối hợp (tránh conflict)
+### Quy trình Git phối hợp (Branch riêng + Pull Request vào `main`)
 
-Trước khi bắt đầu sửa hoặc sau khi người khác báo đã push:
+Không push trực tiếp vào `main`. Mỗi thành viên làm việc trên **1 nhánh riêng** để tránh conflict, bảo vệ tính độc lập ở CP3 và giữ link Pull Request làm bằng chứng đóng góp trong `TEAM.md` / `MSSV_HoTen.md`.
+
+| Thành viên | Tên nhánh làm việc |
+|---|---|
+| **Đỗ Hoàng Vũ** | `feat/vu-cp1-cp2-cost` |
+| **Trần Gia Bảo** | `feat/bao-cp1-cp4-validation` |
+| **Nguyễn Bảo Duy** | `feat/duy-cp3-cp5-metrics` |
+| **Bùi Đặng Nhật Nguyên** | `feat/nguyen-cp3-cp5-docs` |
+
+**Bước 1 — Tạo nhánh riêng từ `main` (làm 1 lần đầu buổi):**
 
 ```bash
-git pull --rebase origin main
+git checkout main
+git pull origin main
+git checkout -b <ten-nhanh-cua-ban>
 ```
 
-Sau khi xong phần việc của mình ở mỗi Checkpoint:
+**Bước 2 — Commit và đẩy nhánh lên GitHub sau mỗi Checkpoint:**
 
 ```bash
 git add <chi_cac_file_minh_phu_trach>
 git commit -m "cpX: mo ta ngan gon phan viec"
-git push origin main
+git push -u origin <ten-nhanh-cua-ban>
 ```
 
-**Tuyệt đối không:** sửa `src/logix_runs.csv`, `src/logix_requests.csv`, `src/lab13_starter.py`, `report/team/MSSV_HoTen.md` gốc; không commit `.venv/` hay `.env`; không force-push hay xóa lịch sử commit.
+**Bước 3 — Tạo Pull Request (PR) và merge vào `main`:**
+
+1. Mở GitHub repo -> chọn **Compare & pull request** từ nhánh của bạn vào `main`.
+2. Nhờ 1 thành viên khác soát nhanh trong 1 phút (đúng file, không sửa CSV, đủ nhãn `simulated`).
+3. Bấm **Create a merge commit** (không dùng squash để giữ nguyên tên tác giả từng commit trên `main`).
+
+**Bước 4 — Đồng bộ `main` mới nhất về nhánh cá nhân trước khi làm CP tiếp theo:**
+
+```bash
+git fetch origin
+git merge origin/main
+```
+
+**Quy tắc riêng cho CP3 (gắn nhãn độc lập):** Duy (`feat/duy-cp3-cp5-metrics`) và Nguyên (`feat/nguyen-cp3-cp5-docs`) **không mở hoặc merge PR chứa bộ nhãn 20 ca** trước khi cả hai hoàn thành 8 phút gắn nhãn độc lập.
+
+**Tuyệt đối không:** push thẳng vào `main`; sửa `src/logix_runs.csv`, `src/logix_requests.csv`, `src/lab13_starter.py`, `report/team/MSSV_HoTen.md` gốc; không commit `.venv/` hay `.env`; không force-push hay xóa lịch sử commit.
 
 ### Checklist chốt trước khi nộp
 
