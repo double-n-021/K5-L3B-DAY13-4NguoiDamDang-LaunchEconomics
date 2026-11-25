@@ -11,9 +11,9 @@
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 | Đỗ Hoàng Vũ | | | | Người viết code (Developer — CP1, CP2) |
+|   1 | Đỗ Hoàng Vũ | 2A202603920 | dohoangvu.nt2005@gmail.com | `hoangvu1806` | Người viết code (Developer — CP1, CP2) |
 |   2 | Trần Gia Bảo | | | | Người kiểm số (Data Validator — CP1, CP2; đổi vai viết code CP4) |
-|   3 | Nguyễn Bảo Duy | | | | Người gắn nhãn 1 (Annotator 1 & Metrics Owner) |
+|   3 | Nguyễn Bảo Duy | 2A202603890 | baoduy2048@gmail.com | baoduy2048 | Người gắn nhãn 1 (Annotator 1 & Metrics Owner) |
 |   4 | Bùi Đặng Nhật Nguyên | | | `double-n-021` | Người gắn nhãn 2 kiêm Giữ hồ sơ (Annotator 2 & Doc Owner) |
 
 Bốn vai của lab:
@@ -35,7 +35,7 @@ report/team/MSSV_HoTen.md
 
 Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
-### Đỗ Hoàng Vũ - MSSV
+### Đỗ Hoàng Vũ - 2A202603920
 
 #### Phần việc phụ trách
 
@@ -43,11 +43,15 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 #### Đóng góp cụ thể
 
-- (Cập nhật sau khi hoàn thành từng Checkpoint)
+- Thiết lập và kiểm tra môi trường Python (`pandas`, `numpy`, `scipy`, `statsmodels`, `yaml`) trong `src/`.
+- Hoàn thiện phần code CP1 trong `src/lab13.py`: 3 hàm lý thuyết A1 (`so_lan_chay_ky_vong`, `ti_le_thanh_cong`, `he_so_chi_phi_moi_viec_thanh_cong`), hàm `mo_hinh` (A2), tách chi phí theo 4 loại yêu cầu và tỉ lệ `ok` theo lần thử (A3), tính chi phí cố định 40 triệu đ/tháng cho phạm vi `noi_dia + hang_nang` (A4).
+- Hoàn thiện phần code CP2 trong `src/lab13.py`: chạy 9 kịch bản độ nhạy B1, kịch bản cặp B2, so sánh giới hạn 1/2/3 lần chạy kèm chi phí cả hệ thống (B3), và kịch bản xem lại 100% cho `noi_dia + hang_nang` kèm mức hòa vốn (B4).
+- Chuẩn bị phân tích 5 câu hỏi tách tác động (D2) và phương án kỹ thuật rollback trong 30 phút cho CP4.
 
 #### Bằng chứng
 
-- (Link commit `src/lab13.py`, output chạy thử, file báo cáo cá nhân)
+- File code `src/lab13.py` chạy qua đủ 3 phép thử A1 (`Ba phép thử đáp án biết trước: ĐẠT`: `1,20 · 1,25 · 1,25`) và xuất đủ bảng số liệu A2–A4, B1–B4.
+- Báo cáo cá nhân `report/team/2A202603920_DoHoangVu.md`.
 
 ### Trần Gia Bảo - MSSV
 
