@@ -2,20 +2,20 @@
 
 Nhóm số n chấm nhóm số n + 1; nhóm cuối chấm nhóm 1. Chấm theo bằng chứng trong hồ sơ, không theo cách trình bày: một đề xuất No-go có lý do bằng số được điểm cao hơn một đề xuất Go bỏ qua con số bất lợi.
 
-- Nhóm chấm (hội đồng): Nhóm 2 — 4NguoiDamDang (L3B)
-- Nhóm được chấm: ...
+- Nhóm chấm (hội đồng): Nhóm Stress (L3B)
+- Nhóm được chấm: Nhóm 2 — 4NguoiDamDang (L3B)
 
 | Tiêu chí | 0 điểm | 5 điểm | 10 điểm | Điểm | Lý do (có số) |
 | --- | --- | --- | --- | ---: | --- |
-| Đề xuất khớp bằng chứng | Mâu thuẫn với số của chính nhóm | Khớp nhưng bỏ qua một con số bất lợi | Khớp, nêu cả con số bất lợi và cách xử lý | ... | ... |
-| Số giả lập và phạm vi | Không nhãn; phạm vi "mọi yêu cầu" | Có nhãn hoặc có thu hẹp phạm vi | Nhãn ở mọi số giả lập; phạm vi thu hẹp có lý do bằng số | ... | ... |
-| Pilot ra được quyết định | Không đối chứng hoặc thiếu cỡ mẫu | Đủ cỡ mẫu, luật dừng chung chung | Tách được tác động, đủ mẫu, luật dừng có ngưỡng, thời hạn, người có quyền dừng | ... | ... |
-| **Tổng** | | | | **... / 30** | |
+| Đề xuất khớp bằng chứng | Mâu thuẫn với số của chính nhóm | Khớp nhưng bỏ qua một con số bất lợi | Khớp, nêu cả con số bất lợi và cách xử lý | 10 | Đề xuất **Go có điều kiện** khớp chặt chẽ với số liệu: phạm vi `noi_dia + hang_nang` có chi phí mỗi việc thành công cộng cố định 40 tr đ/tháng là `4.599 đ` (`0,38×` mức `12.000 đ` ở 45.000 yc/tháng) và `5.784 đ` (`0,48×` ở nửa khối lượng) [simulated]. Nhóm nêu thẳng toàn bộ con số bất lợi và kèm đủ 4 điều kiện xử lý có người phụ trách và hạn kiểm tra: loại `quoc_te` (`22.515 đ = 1,88×`, thành công `27,3%`) và `doi_tac` (`10.215 đ = 0,85×`); chỉ rõ xem lại 100% lên `11.743–12.415 đ` (`0,98–1,03×` [simulated]) nên đặt lộ trình hạ xem lại `< 50%` khi `sua + bo < 15%` (hạn `2026-12-15`); khóa lỗi hoàn trùng/sổ cái (Ca 7, Ca 20) bằng `idempotency_key` và đối soát `> 0 ca lệch/giờ` (hạn `2026-12-01`); kiểm toán `100 đơn/tuần` (`> 1%`) bắt lỗi ngầm Ca 17 (hạn `2026-12-08`); và yêu cầu ký chấp nhận đánh đổi `power = 0,64` ở mức `+5 điểm`. |
+| Số giả lập và phạm vi | Không nhãn; phạm vi "mọi yêu cầu" | Có nhãn hoặc có thu hẹp phạm vi | Nhãn ở mọi số giả lập; phạm vi thu hẹp có lý do bằng số | 10 | Toàn bộ con số tính từ cột `_simulated` đều có nhãn `simulated` / `Giả lập` xuyên suốt `bang_chi_phi.md`, `chi_so.md`, `pilot_plan.yaml` (mục `simulated_inputs`) và `ho_so_launch_v0.md` (Mục 1, 2, 3, 7), đồng thời có điều kiện thay toàn bộ phút giả lập bằng đo thật qua 10 event có `trace_id` ngay sau tuần 1 (`2026-12-08`). Phạm vi pilot thu hẹp rõ ràng chỉ gồm `noi_dia` (`2.696 đ = 0,22×`, thành công `95,0%` [simulated]) và `hang_nang` (`8.221 đ = 0,69×`, thành công `74,1%` [simulated]), loại `quoc_te` (`22.515 đ = 1,88×`, tỉ lệ `ok` tụt `30,0% → 11,4% → 2,2%` khi chạy lại) và `doi_tac` (`10.215 đ = 0,85×`, có điều khoản riêng). Không dùng phạm vi "mọi yêu cầu" và ghi đúng diễn giải số chạy thử (`82,83%`, không quy kết nguyên nhân vì chưa có đối chứng). |
+| Pilot ra được quyết định | Không đối chứng hoặc thiếu cỡ mẫu | Đủ cỡ mẫu, luật dừng chung chung | Tách được tác động, đủ mẫu, luật dừng có ngưỡng, thời hạn, người có quyền dừng | 10 | Thiết kế tách được tác động (đạt đủ 5 câu D2): chia ngẫu nhiên phân tầng theo depot với random seed cố định theo đơn vị nhân viên (`20 + 20`, đạt tối thiểu `20 cụm/nhóm`), đối chứng chạy song song cùng tuần, giảm ảnh hưởng gián tiếp bằng khóa quyền theo `staff_id` + log `trace_id`, chốt trước chỉ số chính `dong_trong_24h_khong_mo_lai_7_ngay`, ngày quyết định `2027-01-05` và không dừng sớm theo chỉ số chính. Đủ cỡ mẫu hiệu dụng theo cụm (`ICC = 0,02`, `DE = 6,96`, `n = 859/nhóm`, `m >= 299 yc/nhân viên`, `MDE = +6 điểm`, `alpha = 0,05`, `power = 0,80`), nêu rõ đánh đổi `power = 0,64` ở mức `+5 điểm`. Đủ 3 luật dừng (an toàn, chi phí, sử dụng) theo mẫu 4 vế `NẾU – TRONG – THÌ – KHÔNG THÌ`, có ngưỡng phù hợp baseline mở lại thực tế (`4,25%` toàn mẫu / `3,97%` trong phạm vi → dừng nếu chênh đối chứng `>= 2 điểm %` hoặc vượt `6,0%` hoặc `>= 1 ca hoàn trùng` trong 3 ngày), có thời hạn, 1 vai trò có quyền dừng rõ ràng và rollback trong `30 phút`. |
+| **Tổng** | | | | **30 / 30** | |
 
-**Quyết định của hội đồng:** Go · Go có điều kiện · No-go (giữ một)
+**Quyết định của hội đồng:** Go có điều kiện
 
-**Lý do:** ...
+**Lý do:** Hồ sơ đạt đủ 7 mục, số liệu nhất quán giữa code (`src/lab13.py`) và toàn bộ 5 file báo cáo, không bỏ qua con số bất lợi và minh bạch toàn bộ phần `simulated`. Phạm vi `noi_dia + hang_nang` có tính khả thi kinh tế rõ rệt (`4.599 đ = 0,38×` mức `12.000 đ` [simulated]), đồng thời kế hoạch pilot `20 + 20` nhân viên tách được tác động, đủ cỡ mẫu ở `MDE = +6 điểm` và có 3 luật dừng định lượng kèm cơ chế rollback 30 phút. Hội đồng đồng ý cho triển khai pilot sau khi hoàn tất 4 điều kiện khóa rủi ro an toàn, đo thời gian thật và ký chấp nhận đánh đổi cỡ mẫu đúng hạn.
 
-**Một câu hỏi cho đội trình:** ...
+**Một câu hỏi cho đội trình:** Ở tuần đầu (bước rollout `0,10`), nhóm dự kiến xem lại 100%, khi đó chi phí mỗi việc thành công lên tới `11.743–12.415 đ` (`0,98–1,03×` mức `12.000 đ` [simulated]) — vượt luôn ngưỡng dừng chi phí `8.000 đ` trong `pilot_plan.yaml`. Làm sao để pilot không bị kích hoạt luật dừng chi phí quá sớm ở bước `0,10`, và nhóm dựa vào điều kiện nào để hạ tỉ lệ xem lại ở bước `0,25`?
 
-**Câu trả lời của đội trình (ghi lại tại buổi):** ...
+**Câu trả lời của đội trình (ghi lại tại buổi):** Luật dừng chi phí (`> 8.000 đ` hoặc tỉ lệ làm lại `> 7%`) được áp dụng trong `2 tuần liên tiếp`, trong khi bước `0,10` chỉ chạy `1 tuần` với mục tiêu học thời gian xem lại thật (`phut_xem_lai`) thay cho số `simulated` và kiểm tra an toàn trước khi mở rộng. Khi bước `0,10` đạt ngưỡng an toàn (không có ca hoàn trùng, tỉ lệ mở lại không vượt ngưỡng dừng) và tỉ lệ bỏ qua gợi ý `sua + bo < 15%`, Trưởng nhóm CSKH sẽ áp dụng lộ trình hạ tỉ lệ xem lại theo bậc từ bước `0,25` (mục tiêu đưa tỉ lệ xem lại `< 50%` và thời gian mỗi lần xem lại xuống dưới mức hòa vốn `4,8–5,1 phút` [simulated]) để chi phí quay về vùng `4.599–5.784 đ` trước khi đo chỉ số chính ở bước `0,50`.

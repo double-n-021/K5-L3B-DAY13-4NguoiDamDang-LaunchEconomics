@@ -25,7 +25,7 @@ Báo cáo ngắn, tối đa 2 trang. Số liệu chi tiết nằm trong các fil
 - **Kinh tế & Độ nhạy [simulated]:** Chi phí mỗi việc thành công toàn mẫu là `4.472 đ` (gấp `16,3×` hóa đơn `274,7 đ/yc`; giờ nhân viên chiếm `92,5%`). Trên phạm vi `noi_dia + hang_nang`, chi phí kèm cố định 40 triệu đ/tháng là `4.599 đ = 0,38×` so với `12.000 đ` (ở 45.000 yc/tháng). Ba yếu tố nhạy nhất là làm lại (`+51,8%`), xem lại (`+40,7%`) và lương nhân viên (`+23,1%`); nếu xem lại 100%, chi phí lên `11.743–12.415 đ` (`0,98–1,03×`).
 - **Lỗi & Chỉ số chạy thử:** Đồng thuận gắn nhãn đạt `20/20 = 100%`. Chỉ số trong đợt chạy thử (chưa có đối chứng): đóng 24h & không mở lại 7 ngày `82,83%`, bỏ qua gợi ý `27,12%`, mở lại trong 7 ngày `4,25%` (`3,97%` trong phạm vi).
 - **Thiết kế Pilot & Đề xuất ([ho_so_launch_v0.md](ho_so_launch_v0.md)):** Chia 20 + 20 nhân viên, MDE `+6 điểm` (`n = 859`, `m >= 299`, `DE = 6,96`; chấp nhận `power = 0,64` ở mức `+5 điểm`). Nhóm đề xuất **Go có điều kiện** kèm 4 điều kiện có ngưỡng, người phụ trách và ngày kiểm tra.
-- **Kết quả duyệt chéo Gate 2a:** *(Cập nhật sau phiên chấm chéo 17:00–17:45 cùng [phieu_cham.md](phieu_cham.md)).*
+- **Kết quả duyệt chéo Gate 2a:** Hội đồng Nhóm Stress (L3B) chấm **30/30** và quyết định **Go có điều kiện**; chi tiết nhận xét và hỏi đáp về lộ trình hạ xem lại từ bước 0,10 sang 0,25 được lưu tại [phieu_cham.md](phieu_cham.md).
 
 ## 5. Khó khăn và cách xử lý
 
