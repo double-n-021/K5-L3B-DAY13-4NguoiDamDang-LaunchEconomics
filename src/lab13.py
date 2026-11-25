@@ -4,7 +4,10 @@ Không cần khoá API. Điền các chỗ ghi VIẾT Ở ĐÂY (đánh dấu TO
 Bản gốc chưa sửa nằm ở lab13_starter.py.
 """
 import math
+from statistics import NormalDist
 import pandas as pd
+from statsmodels.stats.proportion import proportion_effectsize
+from statsmodels.stats.power import NormalIndPower
 
 # Bảng giá GIẢ ĐỊNH của lab (không phải giá thật của nhà cung cấp nào)
 GIA_VAO = 26        # đồng cho 1.000 token đầu vào
@@ -188,6 +191,78 @@ def in_phan_tich_cp1_cp2(runs, reqs, ket_qua):
         )
 
 
+# ---------- Nhiệm vụ D1 · Cỡ mẫu pilot & E1 · Chỉ số chạy thử ----------
+def co_mau(p1, p2, alpha=0.05, power=0.8):
+    """Cỡ mẫu mỗi nhóm khi so hai tỉ lệ (kiểm định hai phía)."""
+    za = NormalDist().inv_cdf(1 - alpha / 2)
+    zb = NormalDist().inv_cdf(power)
+    pb = (p1 + p2) / 2
+    return math.ceil(
+        (za * math.sqrt(2 * pb * (1 - pb)) + zb * math.sqrt(p1 * (1 - p1) + p2 * (1 - p2))) ** 2
+        / (p2 - p1) ** 2
+    )
+
+
+def in_phan_tich_cp4_cp5(reqs):
+    """In kết quả D1 (cỡ mẫu pilot, tỉ lệ mở lại hiện tại) và E1 (3 chỉ số chạy thử)."""
+    p1, p2_5, p2_6 = 0.70, 0.75, 0.76
+    alpha, power, icc = 0.05, 0.80, 0.02
+
+    print('\n--- D1 · Cỡ mẫu pilot (baseline=0,70; alpha=0,05; power=0,80; ICC=0,02) ---')
+    n_req = co_mau(p1, p2_5, alpha, power)
+    print(f"a) Chia theo yeu cau (+5 diem): {n_req:,} yeu cau/nhom")
+
+    m_75 = 75
+    de_75 = 1 + (m_75 - 1) * icc
+    n_nv_75 = math.ceil(n_req * de_75)
+    so_nv_moi_nhom = math.ceil(n_nv_75 / m_75)
+    print(
+        f"b) Theo nhan vien (m={m_75}): DE={de_75:.2f} | n={n_nv_75:,} yc/nhom "
+        f"-> {so_nv_moi_nhom} nguoi/nhom (tong {so_nv_moi_nhom * 2} > 40: khong du nguoi)"
+    )
+
+    max_eff_nv = 20 / icc
+    print(f"c) 20 nhan vien/nhom: co mau hieu dung toi da c/ICC = {max_eff_nv:,.0f} (< {n_req:,}: khong dat)")
+
+    max_eff_depot = 6 / icc
+    print(f"d) 6 depot/nhom: co mau hieu dung toi da c/ICC = {max_eff_depot:,.0f} (< {n_req:,}: khong dat)")
+
+    n_6 = co_mau(p1, p2_6, alpha, power)
+    m_6 = math.ceil(n_6 * (1 - icc) / (20 - n_6 * icc))
+    de_6 = 1 + (m_6 - 1) * icc
+    n_eff_6 = 20 * m_6 / de_6
+    es_5 = proportion_effectsize(p2_5, p1)
+    power_5_tai_n6 = NormalIndPower().power(effect_size=es_5, nobs1=n_6, alpha=alpha, ratio=1.0)
+    print(
+        f"e) Muc chenh +6 diem (n={n_6:,}/nhom), 20 nv/nhom: m >= {m_6} yc/nguoi "
+        f"(DE={de_6:.2f}, n_hieu_dung={n_eff_6:.1f})"
+    )
+    print(f"   Danh doi: neu tac dong that chi +5 diem tai n={n_6:,}, power con {power_5_tai_n6:.2f}")
+
+    # Tỉ lệ mở lại 7 ngày hiện tại (phục vụ đặt ngưỡng luật dừng an toàn D3)
+    mo_lai_all = (reqs['mo_lai_trong_7_ngay'] == 1).mean() * 100
+    so_mo_lai_all = int((reqs['mo_lai_trong_7_ngay'] == 1).sum())
+    pv = reqs[reqs['loai'].isin(['noi_dia', 'hang_nang'])]
+    mo_lai_pv = (pv['mo_lai_trong_7_ngay'] == 1).mean() * 100
+    so_mo_lai_pv = int((pv['mo_lai_trong_7_ngay'] == 1).sum())
+    print(
+        f"Ti le mo_lai_trong_7_ngay hien tai: toan mau {mo_lai_all:.2f}% ({so_mo_lai_all}/{len(reqs)}) | "
+        f"noi_dia+hang_nang {mo_lai_pv:.2f}% ({so_mo_lai_pv}/{len(pv)})"
+    )
+
+    print('\n--- E1 · Ba chỉ số chạy thử trên 1.200 yêu cầu (chưa có đối chứng) ---')
+    chinh_mask = (reqs['dong_trong_24h'] == 1) & (reqs['mo_lai_trong_7_ngay'] == 0)
+    chinh_pct = chinh_mask.mean() * 100
+    xem = reqs[reqs['duoc_xem_lai'] == 1]
+    bo_qua_mask = xem['quyet_dinh_xem_lai'].isin(['sua', 'bo'])
+    bo_qua_pct = bo_qua_mask.mean() * 100
+    an_toan_mask = reqs['mo_lai_trong_7_ngay'] == 1
+    an_toan_pct = an_toan_mask.mean() * 100
+    print(f"Chi so chinh (dong 24h & khong mo lai 7 ngay): {chinh_pct:.2f}% ({int(chinh_mask.sum())}/{len(reqs)})")
+    print(f"Chi so dung (bo qua goi y = sua + bo / xem lai): {bo_qua_pct:.2f}% ({int(bo_qua_mask.sum())}/{len(xem)})")
+    print(f"Chi so an toan (mo lai trong 7 ngay): {an_toan_pct:.2f}% ({int(an_toan_mask.sum())}/{len(reqs)})")
+
+
 if __name__ == '__main__':
     runs = pd.read_csv('logix_runs.csv')
     reqs = pd.read_csv('logix_requests.csv', keep_default_na=False)
@@ -197,6 +272,4 @@ if __name__ == '__main__':
         fmt = f'{gia_tri:>14,.1f}' if ten == 'hoa_don_moi_yc' else f'{gia_tri:>14,.0f}'
         print(f'{ten:15s} {fmt}')
     in_phan_tich_cp1_cp2(runs, reqs, ket_qua)
-    # TODO CP4 · Nhiệm vụ D: cỡ mẫu.
-    #   from statsmodels.stats.proportion import proportion_effectsize
-    #   from statsmodels.stats.power import NormalIndPower
+    in_phan_tich_cp4_cp5(reqs)
